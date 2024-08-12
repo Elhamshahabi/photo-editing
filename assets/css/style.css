@@ -1,0 +1,34 @@
+
+/* ----------------- --------------------------------- */
+/* ریست کردت استایل های پیش فرض و تنظیمات اولیه */
+:root {
+	--vazir-font: "Vazirmatn";
+	--body-clr: #e3f2fd;
+	--white-clr: #fff;
+	--blue-clr: #5372f0;
+	--text-clr: rgb(22, 27, 27);
+}
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+html {
+	font-size: 62.5%;
+}
+body {
+	direction: rtl;
+	font-family: var(--vazir-font);
+	font-weight: normal;
+	background: var(--body-clr);
+	min-height: 100vh;
+}
+button,
+input,
+select,
+p,
+sub,
+option {
+	font-family: inherit;
+}
+/* ----------------------- پایان ریست استایل ها  ---------------------------- */
