@@ -15,52 +15,49 @@
     <title>ادیتور آنلاین عکس | ساده و شیک</title>
   </head>
   <body>
-	<div class="container">
-		<h2>ویرایشگر آسان تصویر</h2>
-		<div class="wrapper">
-			<div class="editor-panel">
-				<div class="filter">
-					<label class="title">فیلتر ها</label>
-					<div class="options">
-						<button class="active">روشنایی</button>
-						<button>اشباع</button>
-						<button>وارونگی</button>
-						<button>مقیاس خاکستری</button>
-					</div>
-					<div class="slider">
-						<div class="filter-info">
-							<p class="name">روشنایی</p>
-							<p class="value">100%</p>
-						</div>
-						<input type="range" value="100" min="0" max="200" />
-					</div>
-				</div>
-				<div class="rotate">
-					<label class="title">چرخش و ورق زدن</label>
-					<div class="options">
-						<button><i class="fa-solid fa-rotate-left"></i></button>
-						<button><i class="fa-solid fa-rotate-right"></i></button>
-						<button><i class="bx bx-reflect-vertical"></i></button>
-						<button><i class="bx bx-reflect-horizontal"></i></button>
-					</div>
-				</div>
-			</div>
-			<div class="preview-img">
-				<img src="assets/images/image-placeholder.svg" alt="preview-img">
-			</div>
-		</div>
-		<div class="controls">
-			<button class="reset-filter">بازنشانی فیلترها</button>
-			<div class="row">
-				<button class="choose-img">تصویر را انتخاب کنید</button>
-				<button class="save-img">ذخیره تصویر</button>
-			</div>	
-		</div>
-	</div>
-    
-
-           
-        
+    <div class="container disable">
+      <h2>ویرایشگر آسان تصویر</h2>
+      <div class="wrapper">
+        <div class="editor-panel">
+          <div class="filter">
+            <label class="title">فیلتر ها</label>
+            <div class="options">
+              <button class="active">روشنایی</button>
+              <button>اشباع</button>
+              <button>وارونگی</button>
+              <button>مقیاس خاکستری</button>
+            </div>
+            <div class="slider">
+              <div class="filter-info">
+                <p class="name">روشنایی</p>
+                <p class="value">100%</p>
+              </div>
+              <input type="range" value="100" min="0" max="200" />
+            </div>
+          </div>
+          <div class="rotate">
+            <label class="title">چرخش و ورق زدن</label>
+            <div class="options">
+              <button><i class="fa-solid fa-rotate-left"></i></button>
+              <button><i class="fa-solid fa-rotate-right"></i></button>
+              <button><i class="bx bx-reflect-vertical"></i></button>
+              <button><i class="bx bx-reflect-horizontal"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="preview-img">
+          <img src="assets/images/image-placeholder.svg" alt="preview-img" />
+        </div>
+      </div>
+      <div class="controls">
+        <button class="reset-filter">بازنشانی فیلترها</button>
+        <div class="row">
+          <input type="file" class="file-input" accept="image/*" hidden />
+          <button class="choose-img">تصویر را انتخاب کنید</button>
+          <button class="save-img">ذخیره تصویر</button>
+        </div>
+      </div>
+    </div>
 
     <!-- فایل های اسکریپت چی اس -->
     <script src="./assets/js/app.js"></script>
