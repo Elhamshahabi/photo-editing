@@ -75,6 +75,7 @@ body {
 
 .editor-panel .filter button {
   width: calc(100% / 2 - 4px);
+  margin-bottom: 5px;
 }
 .filter button.active {
   color: var(--white-clr);
@@ -111,14 +112,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 20px;
+  margin-right: 20px;
 }
 .preview-img img {
   max-width: 490px;
   max-height: 335px;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 .controls button {
   font-size: 14px;
