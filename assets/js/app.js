@@ -5,11 +5,13 @@ filterValue = document.querySelector(".filter-info .value");
 filterSlider = document.querySelector(".slider input");
 rotateOptions = document.querySelectorAll(".rotate button");
 previewImg = document.querySelector(".preview-img img");
+resetFilterBtn = document.querySelector(".reset-filter");
 chooseImgBtn = document.querySelector(".choose-img");
+saveImgBtn = document.querySelector(".save-img");
 
 let brightness = 100,
   saturation = 100,
-  inversion = 100,
+  inversion = 0,
   grayscale = 0;
 
 let rotate = 0;
@@ -27,6 +29,7 @@ const loadImage = () => {
   if (!file) return;
   previewImg.src = URL.createObjectURL(file);
   previewImg.addEventListener("load", () => {
+    resetFilterBtn.click();
     document.querySelector(".container").classList.remove("disable");
   });
 };
@@ -81,13 +84,51 @@ rotateOptions.forEach((Option) => {
       rotate += 90;
     } else if (Option.id === "horizontal") {
       flipHorizontal = flipHorizontal === 1 ? -1 : 1;
-    }else{
-      flipVertical = flipHorizontal === 1 ? -1 : 1; 
+    } else {
+      flipVertical = flipHorizontal === 1 ? -1 : 1;
     }
     applyFilters();
   });
 });
 
+const resetFilter = () => {
+  (brightness = 100), (saturation = 100), (inversion = 0), (grayscale = 0);
+  rotate = 0;
+  (flipHorizontal = 1), (flipVertical = 1);
+  filterOptions[0].click();
+  applyFilters();
+};
+
+const saveImage = () => {
+  const canvas = document.createElement("canvas");
+  const ctx = canvas.getContext("2d");
+  canvas.width = previewImg.naturalWidth;
+  canvas.height = previewImg.naturalHeight;
+
+  ctx.filter = `brightness(${brightness}%) saturate(${saturation}%)
+  invert(${inversion}%)
+  grayscale(${grayscale}%)`;
+  ctx.translate(canvas.width / 2, canvas.height / 2);
+  if (rotate !== 0) {
+    ctx.rotate((rotate * Math.PI) / 180);
+  }
+  ctx.scale(flipHorizontal, flipVertical);
+  ctx.drawImage(
+    previewImg,
+    -canvas.width / 2,
+    -canvas.height / 2,
+    canvas.width,
+    canvas.height
+  );
+
+  const link = document.createElement("a");
+  link.download = "image.jpg";
+  link.href = canvas.toDataURL();
+  link.click();
+};
+
 fileInput.addEventListener("change", loadImage);
 filterSlider.addEventListener("input", updateFilter);
+resetFilterBtn.addEventListener("click", resetFilter);
+saveImgBtn.addEventListener("click", saveImage);
 chooseImgBtn.addEventListener("click", () => fileInput.click());
